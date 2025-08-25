@@ -10,7 +10,7 @@ public class Textos {
     public static final String LOGIN_REALIZADO = "Login realizado com sucesso!\n";
     public static final String ERRO_LOGIN = "Usuário ou senha inválidos. Tentativa ";
     public static final String ERRO_CONTADOR = " de 3.\n";
-    public static final String EXCEDENTE_TENTATIVA = "\n Número máximo de tentativas atingido. Encerrando o programa...";
+    public static final String EXCEDENTE_TENTATIVA = "Número máximo de tentativas atingido. Encerrando o programa...";
     public static final String TEXT_NOME = "Digite o seu primeiro nome: ";
     public static final String TEXT_SOBRENOME = "Digite o seu sobrenome: ";
     public static final String TEXT_EMAIL = "Digite o seu email: ";
@@ -26,7 +26,7 @@ public class Textos {
             "1- Nome\n" +
             "2- Sobrenome\n" +
             "3- Email\n" +
-            "0- Volar ao menu anterior\n";
+            "0- Voltar ao menu anterior\n";
     public static final String NOVO_NOME = "Digite o novo nome: ";
     public static final String NOVO_SOBRENOME = "Digite o novo sobrenome: ";
     public static final String NOVO_EMAIL = "Digite o seu novo email: ";
