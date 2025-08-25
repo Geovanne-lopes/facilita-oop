@@ -5,6 +5,8 @@ public class Menu {
     private final Scanner sc = new Scanner(System.in);
     private final DadosUsuario dadosUsuario = new DadosUsuario();
 
+    Printers printers = new Printers();
+
     public Menu() {
         exibirMenu();
     }
@@ -12,14 +14,11 @@ public class Menu {
     public void exibirMenu() {
         int opcao;
 
-        System.out.println("Vamos começar com o cadastro de seus dados!");
+        printers.printer(Textos.CADASTRO_DADOS);
         dadosUsuario.inserirDados();
 
         do {
-            System.out.println("Escolha uma opção: \n" +
-                    "1- Exibir dados do Usuário\n" +
-                    "2- Editar dados do Usuário\n" +
-                    "0- Sair do programa");
+            printers.printer(Textos.MENU_CADASTRO);
             opcao = sc.nextInt();
             switch (opcao) {
                 case 1:
@@ -29,9 +28,11 @@ public class Menu {
                     dadosUsuario.editarDados();
                     break;
                 case 0:
-                    System.out.println("Obrigado por utilizar nosso programa!");
+                    printers.printer(Textos.SAINDO_PROGRAMA);
+                    break;
                 default:
-                    System.out.println("Opção inválida.");
+                    printers.printer(Textos.OPCAO_INVALIDA);
+                    break;
             }
         } while (opcao != 0);
     }

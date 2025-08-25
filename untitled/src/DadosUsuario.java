@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class DadosUsuario {
 
+    Scanner sc = new Scanner(System.in);
+
     private String nome;
 
     private String sobrenome;
@@ -10,8 +12,7 @@ public class DadosUsuario {
 
     private String cpf;
 
-    Scanner sc = new Scanner(System.in);
-
+    Printers printers = new Printers();
 
     public boolean validarEmailRegex() {
         return email != null && email.matches("^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");
@@ -32,30 +33,30 @@ public class DadosUsuario {
     }
 
     public void inserirDados() {
-        System.out.print("Digite o seu primeiro nome: ");
+        printers.printer(Textos.TEXT_NOME);
         nome = sc.nextLine();
-        System.out.print("Digite o seu sobrenome: ");
+        printers.printer(Textos.TEXT_SOBRENOME);
         sobrenome = sc.nextLine();
 
         do {
-            System.out.print("Digite o seu email: ");
+            printers.printer(Textos.TEXT_EMAIL);
             email = sc.nextLine();
 
             if  (!validarEmailRegex()) {
-                System.out.println("⚠️ E-mail inválido. Digite novamente no formato correto (ex: usuario@dominio.com).");
+                printers.printer(Textos.TEXT_ERRO_EMAIL);
             }
         } while (!validarEmailRegex());
 
         do {
-            System.out.print("Digite o seu cpf, apenas números: ");
+            printers.printer(Textos.TEXT_CPF);
             cpf = sc.nextLine();
 
             if (!validarCPF()) {
-                System.out.println("⚠️ CPF inválido. Digite novamente (somente números e com 11 dígitos).\"");
+                printers.printer(Textos.TEXT_ERRO_CPF);
             }
         } while (!validarCPF());
 
-        System.out.println("Dados cadastrados com sucesso! ");
+        printers.printer(Textos.SUCESSO_CADASTRO);
 
     }
 
@@ -68,58 +69,43 @@ public class DadosUsuario {
     public void setCpf(String cpf) {this.cpf = cpf;}
 
     public void exibirInformacoes() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Sobrenome: " + sobrenome);
-        System.out.println("E-mail: " + email);
-        System.out.println("CPF: " + cpf);
+        printers.printer(Textos.PRINT_NOME + nome);
+        printers.printer(Textos.PRINT_SOBRENOME + sobrenome);
+        printers.printer(Textos.PRINT_EMAIL + email);
+        printers.printer(Textos.PRINT_CPF + cpf);
     }
 
     public void editarDados() {
         int opcao;
         do {
-            System.out.println("Digite qual dado você quer editar: \n" +
-                    "1- Nome\n" +
-                    "2- Sobrenome\n" +
-                    "3- Email\n" +
-                    "4- CPF\n" +
-                    "0- Volar ao menu anterior");
+            printers.printer(Textos.MENU_EDITAR_DADOS);
             opcao = sc.nextInt();
             sc.nextLine();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite o novo nome: ");
+                    printers.printer(Textos.NOVO_NOME);
                     nome = sc.nextLine();
                     break;
                 case 2:
-                    System.out.println("Digite o novo sobrenome: ");
+                    printers.printer(Textos.NOVO_SOBRENOME);
                     sobrenome = sc.nextLine();
                     break;
                 case 3:
                     do {
-                        System.out.println("Digite o seu novo email: ");
+                        printers.printer(Textos.NOVO_EMAIL);
                         email = sc.nextLine();
 
                         if (!validarEmailRegex()) {
-                            System.out.println("⚠️ E-mail inválido. Digite novamente no formato correto (ex: usuario@dominio.com).");
+                            printers.printer(Textos.TEXT_ERRO_EMAIL);
                         }
                     } while (!validarEmailRegex());
                     break;
-                case 4:
-                    do {
-                        System.out.println("Digite o seu cpf, apenas números: ");
-                        cpf = sc.nextLine();
-
-                        if (!validarCPF()) {
-                            System.out.println("⚠️ CPF inválido. Digite novamente (somente números e com 11 dígitos).\"");
-                        }
-                    } while (!validarCPF());
-                    break;
                 case 0:
-                    System.out.println("Nenhum dado foi editado!");
+                    printers.printer(Textos.NENHUM_DADO);
                     break;
                 default:
-                    System.out.println("Opção inválida! ");
+                    printers.printer(Textos.OPCAO_INVALIDA);
                     break;
             }
         } while (opcao != 0);

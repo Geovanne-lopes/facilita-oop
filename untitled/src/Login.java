@@ -5,6 +5,7 @@ public class Login {
     private String username;
     private String password;
     Scanner sc = new Scanner(System.in);
+    Printers printers = new Printers();
 
     public Login() {
         cadastro();
@@ -17,12 +18,12 @@ public class Login {
     }
 
     public void cadastro() {
-        System.out.println("Vamos realizar seu cadastro.");
-        System.out.print("Por favor, digite seu login: ");
+        printers.printer(Textos.INICIO_CADASTRO);
+        printers.printer(Textos.TEXT_USERNAME);
         username = sc.nextLine();
-        System.out.print("Por favor, digite sua senha: ");
+        printers.printer(Textos.TEXT_PASSWORD);
         password = sc.nextLine();
-        System.out.println("Cadastro do usuário: " + username + " realizado com sucesso!");
+        printers.printer(Textos.CADASTRO_REALIZADO + username + Textos.COM_SUCESSO);
     }
 
     public void realizarLogin () {
@@ -31,22 +32,22 @@ public class Login {
         boolean logado = false;
 
         while (tentativas < 3 && !logado) {
-            System.out.println("Insira suas credenciais para realizar o login: ");
-            System.out.print("Login: ");
+            printers.printer(Textos.INICIAR_LOGIN);
+            printers.printer(Textos.USERNAME);
             String loginDigitado = sc.nextLine();
-            System.out.print("Senha: ");
+            printers.printer(Textos.PASSWORD);
             String senhaDigitada = sc.nextLine();
             if (loginDigitado.equals(username) && senhaDigitada.equals(password)) {
-                System.out.println("✅ Login realizado com sucesso!");
+                printers.printer(Textos.LOGIN_REALIZADO);
                 logado = true;
             } else {
                 tentativas++;
-                System.out.print("❌ Usuário ou senha inválidos. Tentativa " + tentativas + " de 3.");
+                printers.printer(Textos.ERRO_LOGIN + + tentativas + Textos.ERRO_CONTADOR);
             }
         }
 
         if (!logado) {
-            System.out.println("\n⛔ Número máximo de tentativas atingido. Encerrando o programa...");
+            printers.printer(Textos.EXCEDENTE_TENTATIVA);
             System.exit(0);
         }
     }
