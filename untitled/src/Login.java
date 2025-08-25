@@ -8,14 +8,20 @@ public class Login {
     Printers printers = new Printers();
 
     public Login() {
-        cadastro();
-        realizarLogin();
     }
 
     public Login(String username, String password) {
         this.username = username;
         this.password = password;
     }
+
+    public String getUsername() {return username;}
+
+    String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
+
+    public void setUsername(String username) { this.username = username; }
 
     public void cadastro() {
         printers.printer(Textos.INICIO_CADASTRO);

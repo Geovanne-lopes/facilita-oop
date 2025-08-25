@@ -3,15 +3,10 @@ import java.util.Scanner;
 public class DadosUsuario {
 
     Scanner sc = new Scanner(System.in);
-
     private String nome;
-
     private String sobrenome;
-
     private String email;
-
     private String cpf;
-
     Printers printers = new Printers();
 
     public boolean validarEmailRegex() {
@@ -30,6 +25,14 @@ public class DadosUsuario {
         this.sobrenome = sobrenome;
         this.email = email;
         this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
     }
 
     public void inserirDados() {
