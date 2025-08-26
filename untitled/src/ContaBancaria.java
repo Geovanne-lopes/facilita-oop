@@ -1,5 +1,3 @@
-//import org.w3c.dom.Text;
-
 import java.util.Scanner;
 
 public class ContaBancaria {
@@ -20,19 +18,11 @@ public class ContaBancaria {
         sc.nextLine();
     }
 
-//    public ContaBancaria(DadosUsuario dadosUsuario, String numeroConta, double saldo, Login login) {
-//        this.numeroConta = numeroConta;
-//        this.titular = dadosUsuario.getNome();
-//        this.saldo = saldo;
-//        this.senha = login.getPassword();
-//    }
-
     public void depositar() {
         printers.printer(Textos.VALOR_DEPOSITO);
         double valorDeposito = sc.nextDouble();
         sc.nextLine();
         Transacao deposito = new Transacao(
-                "DEP" + System.currentTimeMillis(),
                 "DEPÓSITO",
                 valorDeposito,
                 getNumeroConta()
@@ -51,7 +41,6 @@ public class ContaBancaria {
         double valorSaque = sc.nextDouble();
         sc.nextLine();
         Transacao saque = new Transacao(
-                "SAQ" + System.currentTimeMillis(),
                 "SAQUE",
                 valorSaque,
                 getNumeroConta()
@@ -81,7 +70,6 @@ public class ContaBancaria {
         sc.nextLine();
 
         Transacao transferencia = new Transacao(
-                "TRA" + System.currentTimeMillis(),
                 "TRANSFERÊNCIA",
                 valorTransferencia,
                 contaDestino
@@ -108,11 +96,7 @@ public class ContaBancaria {
 
 
     public String getNumeroConta() { return numeroConta; }
-//    public void setNumeroConta(String numeroConta) { this.numeroConta = numeroConta; }
     public String getTitular() { return titular; }
     public void setTitular(String titular) { this.titular = titular; }
     public double getSaldo() { return saldo; }
-//    public void setSaldo(double saldo) { this.saldo = saldo; }
-//    public String getSenha() { return senha; }
-//    public void setSenha(String senha) {}
 }
