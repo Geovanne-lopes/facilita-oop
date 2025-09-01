@@ -1,3 +1,5 @@
+package br.com.fintech.model;
+
 public class Transacao {
     private final String tipo;
     private final double valor;
