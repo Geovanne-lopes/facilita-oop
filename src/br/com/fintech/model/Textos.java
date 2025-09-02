@@ -89,6 +89,7 @@ public class Textos {
     public static final String EXTRATO_BANCARIO = "\n=== EXTRATO BANCÁRIO ===";
     public static final String TITULAR = "\nTitular: ";
     public static final String CONTA = "\nConta: ";
+    public static final String TIPO_CONTA = "\nTipo Conta: ";
     public static final String SALDO_ATUAL = "\nSaldo atual: R$ ";
 
 
