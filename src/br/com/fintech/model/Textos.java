@@ -1,3 +1,5 @@
+package br.com.fintech.model;
+
 public class Textos {
     public static final String INICIO_CADASTRO = "Vamos realizar seu cadastro.\n";
     public static final String TEXT_USERNAME = "Por favor, digite seu login: ";
@@ -87,11 +89,8 @@ public class Textos {
     public static final String EXTRATO_BANCARIO = "\n=== EXTRATO BANCÁRIO ===";
     public static final String TITULAR = "\nTitular: ";
     public static final String CONTA = "\nConta: ";
+    public static final String TIPO_CONTA = "\nTipo Conta: ";
     public static final String SALDO_ATUAL = "\nSaldo atual: R$ ";
-
-
-
-
 
 
 }

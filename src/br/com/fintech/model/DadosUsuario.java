@@ -1,3 +1,5 @@
+package br.com.fintech.model;
+
 import java.util.Scanner;
 
 public class DadosUsuario {
@@ -114,5 +116,4 @@ public class DadosUsuario {
         } while (opcao != 0);
     }
 }
-
 
