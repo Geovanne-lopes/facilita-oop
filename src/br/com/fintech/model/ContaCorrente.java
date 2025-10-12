@@ -7,6 +7,12 @@ public class ContaCorrente extends Conta {
     private Scanner sc = new Scanner(System.in);
     private Printers printers = new Printers();
 
+    public ContaCorrente(String numeroConta, String titular, double saldo) {
+        super(numeroConta, titular, saldo);
+        setTypeConta("Corrente");
+    }
+
+
     public ContaCorrente() {
         setTypeConta("Conta Corrente");
     }
